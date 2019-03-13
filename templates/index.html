@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stock Exchange</title>
+	{% load static %}
+	<title></title>
+	<link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
+	<script src="/static/js/jquery-3.2.1.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/animate.css">
+	<!--<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">-->
+	
+	<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+</head>
+<body style="font-family: 'Raleway', sans-serif;">
+<script src="/static/js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="/static/js/materialize.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		 $(".button-collapse").sideNav();
+	});
+</script>
+ <nav>
+    <div class="nav-wrapper teal darken-3 ">
+      <a href="#" class="brand-logo" style="margin-left: 30px;"><b class="lime-text">Stock Exchange</b></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down" style="margin-right: 70px;">
+        <li><a href="{% url 'login' %}">LOGIN</a></li>
+        <li><a href="{% url 'register' %}">REGISTER</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+      	<li><a href="{% url 'login' %}">LOGIN</a></li>
+        <li><a href="{% url 'register' %}">REGISTER</a></li>
+        <li><a href="#">DEVELOPERS</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+<div class="teal darken-3 white-text" style="height:1015px;">
+	<div class="teal darken-3 white-text" style="height:215px;">
+	</div>
+
+<div class="container">
+	<div class="row center">
+		<div class="col s6">
+			<br> <a href="{% url 'login' %}" class="black-text waves-effect waves-black btn-flat white"><b>Sign In</b></a>
+		</div>
+		<div class="col s6">
+			 <br><a href="{% url 'register' %}" class="black-text waves-effect waves-green btn-flat white"><b>Register</b></a>
+		</div>
+	</div>
+</div>
+<br><br>
+</div>
+<br><br>
+	
+
+	
+</body>
+</html>
