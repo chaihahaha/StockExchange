@@ -100,8 +100,10 @@ def sharegraph(request,name):
 	x=[]
 	y=[]
 	data_history = ts.get_hist_data(name, ktype='60')
+	#data_history.reindex(index=data_history.index[::-1])
 	for index, row in data_history.iterrows():
 		x.append(datetime.strptime(index, '%Y-%m-%d %H:%M:%S'))
+		print(x[-1])
 		y.append(data_history.loc[index, 'ma5'])
 	
 	# today_history = ts.get_today_ticks(name)
@@ -114,6 +116,7 @@ def sharegraph(request,name):
 	share_price_obj = SharePrice.objects.filter(share=share_obj)
 	for obj in share_price_obj:
 		x.append(obj.time)
+		print(obj.time)
 		y.append(obj.price)
 	return HttpResponse(plot([Scatter(x=x, y=y)],auto_open=False,output_type='div'))	
 
