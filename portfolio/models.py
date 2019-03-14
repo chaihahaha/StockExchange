@@ -17,7 +17,7 @@ class UserHolding(models.Model):
 	Stores the total stock value of a user, related to :model:`register.UserDetails`
 	"""
 	user_id = models.CharField(max_length=120,blank=True,null=True)
-	time = models.TimeField(auto_now=True)
+	time = models.DateTimeField(auto_now=True)
 	holdings = models.FloatField(default=10000.00)
 
 class CurrentUserHolding(models.Model):

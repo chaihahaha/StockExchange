@@ -128,6 +128,7 @@ def profit_loss_graph(request,name):
 
 	for o in obj:
 		x.append(o.time)
+		# print(type(o.time))
 		y.append(o.holdings)
 
 	return HttpResponse(plot([Scatter(x=x, y=y)],auto_open=False,output_type='div'))	

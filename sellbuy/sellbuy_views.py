@@ -99,10 +99,22 @@ def current_quantity(request):
 def sharegraph(request,name):
 	x=[]
 	y=[]
-	data_history = ts.get_hist_data(name, ktype='5', start='2014-01-05')
+	data_history = ts.get_hist_data(name, ktype='60')
 	for index, row in data_history.iterrows():
 		x.append(datetime.strptime(index, '%Y-%m-%d %H:%M:%S'))
 		y.append(data_history.loc[index, 'ma5'])
+	
+	# today_history = ts.get_today_ticks(name)
+	# today_str = datetime.now().strftime('%Y:%m:%d ')
+	# for index, row in today_history.iterrows():
+		# x.append(datetime.strptime(today_str + today_history.loc[index, 'time'], '%Y:%m:%d %H:%M:%S'))
+		# y.append(today_history.loc[index, 'price'])
+	
+	share_obj = Share.objects.get(name=name)
+	share_price_obj = SharePrice.objects.filter(share=share_obj)
+	for obj in share_price_obj:
+		x.append(obj.time)
+		y.append(obj.price)
 	return HttpResponse(plot([Scatter(x=x, y=y)],auto_open=False,output_type='div'))	
 
 

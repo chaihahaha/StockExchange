@@ -24,7 +24,7 @@ class SharePrice(models.Model):
 	"""
 	share = models.ForeignKey('Share')
 	price = models.FloatField(default=1000.00)
-	time = 	models.TimeField(auto_now=True)
+	time = 	models.DateTimeField(auto_now=True)
 
 	
 
